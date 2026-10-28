@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History - Project KASHI</title>
+</head>
+<body>
+    <h1>PROJECT KASHI</h1>
+    <h2>Transaction History</h2>
+
+    <p>Total transactions: {{ transactions|length }}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Account</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Reference</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.transaction_id }}</td>
+                <td>{{ transaction.transaction_date }}</td>
+                <td>{{ transaction.account_number }}</td>
+                <td>{{ transaction.transaction_type }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.description or "" }}</td>
+                <td>{{ transaction.reference_number or "" }}</td>
+                <td>{{ transaction.transaction_status }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="8">No transactions recorded yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+</body>
+</html>

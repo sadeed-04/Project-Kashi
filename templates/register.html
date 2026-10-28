@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Registration - Project KASHI</title>
+</head>
+<body>
+
+    <h1>PROJECT KASHI</h1>
+    <h2>Customer Registration</h2>
+
+    {% if message %}
+    <p role="status">{{ message }}</p>
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('register') }}">
+
+        <label>First Name:</label>
+        <input type="text" name="first_name" required>
+        <br><br>
+
+        <label>Last Name:</label>
+        <input type="text" name="last_name">
+        <br><br>
+
+        <label>Mobile Number:</label>
+        <input type="text" name="mobile" required>
+        <br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+        <br><br>
+
+        <label>City:</label>
+        <input type="text" name="city" required>
+        <br><br>
+
+        <button type="submit">Register Customer</button>
+
+    </form>
+
+    <br>
+    <a href="{{ url_for('home') }}">Back to Home</a> |
+    <a href="{{ url_for('customers') }}">View Registered Customers</a>
+
+</body>
+</html>

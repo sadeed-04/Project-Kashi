@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer List - Project KASHI</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f4f7;
+            margin: 30px;
+        }
+
+        h1 {
+            color: #12355b;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #12355b;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #eef3f8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>PROJECT KASHI</h1>
+    <h2>Registered Customers</h2>
+
+    <p>Total customers: {{ customers|length }}</p>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>City</th>
+        </tr>
+
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer.customer_id }}</td>
+            <td>{{ customer.first_name }}</td>
+            <td>{{ customer.last_name or "" }}</td>
+            <td>{{ customer.mobile or "" }}</td>
+            <td>{{ customer.email or "" }}</td>
+            <td>{{ customer.city or "" }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="6">No customers registered yet.</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+
+    <a href="{{ url_for('home') }}">Back to Home</a> |
+    <a href="{{ url_for('register') }}">Register New Customer</a>
+
+</body>
+</html>

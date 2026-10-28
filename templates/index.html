@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project KASHI - Banking System</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #00070e;
+            color: #1e293b;
+        }
+
+        header {
+            background: #2ddcbf;
+            color: white;
+            padding: 22px 7%;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        header p {
+            color: #8f9774;
+        }
+
+        nav {
+            background: white;
+            padding: 15px 7%;
+            box-shadow: 0 2px 5px #00000010;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #12355b;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 86%;
+            margin: 35px auto;
+        }
+
+        .welcome {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .welcome h2 {
+            color: #12355b;
+            margin-top: 0;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px #00000008;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .icon {
+            font-size: 35px;
+        }
+
+        .card h3 {
+            color: #12355b;
+        }
+
+        .card p {
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 11px 16px;
+            background: #1769aa;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+
+        .button:hover {
+            background: #12355b;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #12355b;
+            color: white;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>PROJECT KASHI 🏦</h1>
+        <p>Banking Management System</p>
+    </header>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/register">Customer Registration</a>
+    <a href="/customers">View Registered Customers</a>
+</nav>
+
+
+
+    <main class="container">
+
+        <section class="welcome">
+            <h2>Welcome to Project KASHI!</h2>
+
+            <p>
+                Manage customers, accounts, deposits,
+                withdrawals, transfers and loans
+                through one simple dashboard.
+            </p>
+        </section>
+
+        <section class="dashboard">
+
+
+            <div class="card">
+                <div class="icon">👥</div>
+                <h3>Registered Customers</h3>
+                <p>View all customers registered in Project KASHI.</p>
+                <a href="/customers"    class="button">
+                  View Customers
+                 </a>
+            </div>
+
+
+            <div class="card">
+                <div class="icon">🏦</div>
+                <h3>Create Account</h3>
+                <p>Create an account for a customer.</p>
+                <a href="/account" class="button">
+                    Create Account
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="icon">💰</div>
+                <h3>Deposit Money</h3>
+                <p>Add money to a bank account.</p>
+                <a href="/deposit" class="button">
+                    Deposit
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="icon">💸</div>
+                <h3>Withdraw Money</h3>
+                <p>Withdraw money from an account.</p>
+                <a href="/withdraw" class="button">
+                    Withdraw
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="icon">🔄</div>
+                <h3>Transfer Money</h3>
+                <p>Transfer money between accounts.</p>
+                <a href="/transfer" class="button">
+                    Transfer
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="icon">📜</div>
+                <h3>Transaction History</h3>
+                <p>View deposits, withdrawals and transfers.</p>
+                <a href="/transactions" class="button">
+                    View Transactions
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎓</div>
+                <h3>Loan Information</h3>
+                <p>View customer loan information.</p>
+                <a href="/loans" class="button">
+                    View Loans
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Project KASHI | Banking Management System</p>
+        <p>Academic DBMS Project</p>
+    </footer>
+
+</body>
+
+</html>

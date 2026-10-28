@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Information - Project KASHI</title>
+</head>
+<body>
+    <h1>PROJECT KASHI</h1>
+    <h2>Loan Information</h2>
+
+    <p>Total loans: {{ loans|length }}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Loan ID</th>
+                <th>Customer</th>
+                <th>Loan Type</th>
+                <th>Amount</th>
+                <th>Interest Rate</th>
+                <th>Start Date</th>
+                <th>Tenure (months)</th>
+                <th>Status</th>
+                <th>Branch</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for loan in loans %}
+            <tr>
+                <td>{{ loan.loan_id }}</td>
+                <td>{{ loan.customer_name }} ({{ loan.customer_id }})</td>
+                <td>{{ loan.loan_type }}</td>
+                <td>{{ loan.loan_amount }}</td>
+                <td>{{ loan.interest_rate if loan.interest_rate is not none else "" }}</td>
+                <td>{{ loan.start_date or "" }}</td>
+                <td>{{ loan.tenure_months or "" }}</td>
+                <td>{{ loan.loan_status }}</td>
+                <td>{{ loan.branch_name }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="9">No loans recorded yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+</body>
+</html>
